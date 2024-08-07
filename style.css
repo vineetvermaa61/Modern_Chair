@@ -1,0 +1,455 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
+*,
+*::after,
+*::before
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* whole doc */
+body{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #fff;
+    background-color: #1f2029;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: none;
+}
+
+/* para */
+p{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #fff;
+    margin: 0;
+}
+
+/* just like wrapper class */
+.section-fluid-main{
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* main container jismein sab kuch hai - container */
+.section{
+    position: relative;
+    max-width: calc(100%-40px);
+    width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 100px 0;
+}
+
+/* detail/description radio buttons aur unka content */
+.section-fluid{
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+/* type="radion" jaha likha hai wo checked hai/nahi hai - radio button hide kar rahe */
+[type="radio"]:checked,
+[type="radio"]:not(:checked){
+    position: absolute;
+    visibility: hidden;
+}
+
+/* agar radion button checked hai/nahi hai to uske just baad ka label */
+/* kul milake label ki properties hain - check/uncheck ka dhyaan rakhte hue */
+.color-btn:checked + label,
+.color-btn:not(:checked) + label{
+    position: relative;
+    height: 40px;
+    width: 40px;
+    transition: all 200ms linear;
+    border-radius: 4px;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    color: #ffeba7;
+    margin-right: 10px;
+    box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.25);
+    z-index: 10;
+    background-position: center;
+    background-size: cover;
+    border: 3px solid transparent;
+}
+
+/* agar button class checked hai to uske just baad ka label */
+.color-btn:checked + label{
+    border-color: #434343;
+    transform: scale(1.1);
+}
+
+/* label ke first-color wali class ka bg aur margin */
+label.first-color{
+    margin-left: 500px;
+    background-image: url(images/color1.jpg);
+}
+label.color-2{
+    background-image: url(images/color2.jpg);
+}
+label.color-3{
+    background-image: url(images/color3.jpg);
+}
+label.color-4{
+    background-image: url(images/color4.jpg);
+}
+label.color-5{
+    background-image: url(images/color5.jpg);
+}
+label.color-6{
+    background-image: url(images/color6.jpg);
+}
+
+/* chair ki images */
+.img-wrap{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 500px;
+    height: 410px;
+    /* works as inline & block combined aur height width bhi set kar sakte hain */
+    display: inline-block;
+    z-index: 9;
+    transition: all 550ms linear;
+    transition-delay: 100ms;
+    background-position: center top;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url(images/chair1.png);
+    opacity: 0;
+}
+
+/* jab color-1 cheked hoga, to is class ke baad ke sare img-wrap ke andar ke chair-1 class par ye apply karo */
+
+/* image pehle se define kar rakhi hai har class ke liye aur unki opacity bhi 0 kar rakhi hai */
+/* jab wo paricular class select hogi to uski image ki opacity 1 ho jayegi aur jo checked nahi hai wo 0-by-default ho jayegi */
+/* bina opacity ke bhi kar sakte hain magar itna smooth effect nahi ayega */
+
+/* overall jab kabhi koi radio button checked hoga, to uske corresponding kisi chair image ko show kar denge */
+.for-color-1:checked ~ .img-wrap.chair-1 {
+    opacity: 1;
+    animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+  .img-wrap.chair-2 {
+    background-image: url("./images/chair2.png");
+  }
+  .for-color-2:checked ~ .img-wrap.chair-2 {
+    opacity: 1;
+    animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+  .img-wrap.chair-3 {
+    background-image: url("./images/chair3.png");
+  }
+  .for-color-3:checked ~ .img-wrap.chair-3 {
+    opacity: 1;
+    animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+  .img-wrap.chair-4 {
+    background-image: url("./images/chair4.png");
+  }
+  .for-color-4:checked ~ .img-wrap.chair-4 {
+    opacity: 1;
+    animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+  .img-wrap.chair-5 {
+    background-image: url("./images/chair5.png");
+  }
+  .for-color-5:checked ~ .img-wrap.chair-5 {
+    opacity: 1;
+    animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+  .img-wrap.chair-6 {
+    background-image: url("./images/chair6.png");
+  }
+  .for-color-6:checked ~ .img-wrap.chair-6 {
+    opacity: 1;
+    animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0) rotate(-1deg);
+    }
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0) rotate(2deg);
+    }
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-3px, 0, 0) rotate(-3deg);
+    }
+    40%,
+    60% {
+      transform: translate3d(3px, 0, 0) rotate(3deg);
+    }
+  }
+
+  /* back-color / backgrounds */
+  /* An element with position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled. */
+  .back-color{
+    position: fixed;
+    /* diognally socho to poora viewPort gher liya */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+    background-image: linear-gradient(196deg, #f1a9a9, #e66767);
+    transition: all 250ms linear;
+    transition-delay: 300ms;
+  }
+
+  /* back-color class ke andar chair-2 class ke sath ye b.image laga do aur uski opacity abhi 0 rakho */
+  /* jab for-color-2 class checked ho tab back-color class ki chair-2 class ki opacity 1 kar do  */
+
+  /* overall sabhi ke liye initially ek bg set kiya aur opacity 0 kar di aur jab wo particular class select hogi tab opacity 1 kar di */
+  .back-color.chair-2 {
+    background-image: linear-gradient(196deg, #4c4c4c, #262626);
+    opacity: 0;
+  }
+  .for-color-2:checked ~ .back-color.chair-2 {
+    opacity: 1;
+  }
+  .back-color.chair-3 {
+    background-image: linear-gradient(196deg, #8a9fb2, #5f7991);
+    opacity: 0;
+  }
+  .for-color-3:checked ~ .back-color.chair-3 {
+    opacity: 1;
+  }
+  .back-color.chair-4 {
+    background-image: linear-gradient(196deg, #97afc3, #6789a7);
+    opacity: 0;
+  }
+  .for-color-4:checked ~ .back-color.chair-4 {
+    opacity: 1;
+  }
+  .back-color.chair-5 {
+    background-image: linear-gradient(196deg, #afa6a0, #8c7f76);
+    opacity: 0;
+  }
+  .for-color-5:checked ~ .back-color.chair-5 {
+    opacity: 1;
+  }
+  .back-color.chair-6 {
+    background-image: linear-gradient(196deg, #aaadac, #838786);
+    opacity: 0;
+  }
+  .for-color-6:checked ~ .back-color.chair-6 {
+    opacity: 1;
+  }
+
+  /* sara text iske andar hai */
+.info-wrap{
+    margin-left: 500px;
+    position: relative;
+    z-index: 10;
+    display: block;
+    text-align: left;
+
+}
+
+/* main title */
+.title-up{
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    line-height: 1.2;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* chair name */
+h2{
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 1.2;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* price */
+h4{
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.2;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+h4 span{
+    text-decoration: line-through;
+    font-size: 20px;
+    opacity: 0.6;
+    padding-left: 15px;
+}
+
+/* choose color */
+h5{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* description and details radio button config. */
+.desc-btn:checked + label,
+.desc-btn:not(:checked) + label{
+    position: relative;
+    transition: all 200ms linear;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    color: #ffeba7;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #fff;
+    margin-right: 25px;
+    opacity: 0.5;
+}
+
+/* agar button checked hai to poora visible hoga */
+.desc-btn:checked + label{
+    opacity: 1;
+}
+
+/* agar hovel karenge to visibility badhegi */
+.desc-btn:not(:checked) + label:hover{
+    opacity: 0.8;
+}
+
+/* description and details ka text */
+.desc-sec{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    transition: all 250ms linear;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+/* details text - ko pehle wale details text par overlap kara diya */
+.desc-sec.accor-2{
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+/* agar id desc-1 wala radio button checked hai to 1st description ko visible kar do */
+/* aur jo pehle wala text tha use y-direction mein translate karte hue uski opacity 0 kar do */
+#desc-1:checked ~ .desc-sec.accor-1{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#desc-2:checked ~ .desc-sec.accor-2{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* details wala section */
+.section-inline{
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.section-inline p span{
+    font-size: 30px;
+    line-height: 1.1;
+}
+
+/* add to cart button */
+.btn{
+    position: relative;
+    /* font-family: "Poppins", sans-serif; */
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 2;
+    height: 48px;
+    border-radius: 4px;
+    width: 210px;
+    letter-spacing: 1px;
+    /* The display: inline-flex property will make the element a flexbox container and the container will be inline */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: transparent;
+    color: #fff;
+    box-shadow: 0 6px 15px 0 rgba(16, 39, 112, 0.15);
+    transition: all 250ms linear;
+    text-decoration: none;
+    margin-top: 50px;
+}
+
+.icon {
+    padding-right: 7px;
+    font-size: 20px;
+  }
+
+/* color overlap */
+.btn::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: -1;
+    background-color: #944852;
+    transition: background-color 250ms 300ms ease;
+}
+
+/* hover karne par hamesha ye color ayega */
+.btn:hover {
+    box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.25);
+    background-color: #333;
+  }
+
+  /* jab for-color-2 class checked hogi, tab ye color overlap ho jayega with the given transition */
+  .for-color-2:checked ~ .info-wrap .btn:before {
+    background-color: #1a1a1a;
+  }
+  .for-color-3:checked ~ .info-wrap .btn:before {
+    background-color: #40566e;
+  }
+  .for-color-4:checked ~ .info-wrap .btn:before {
+    background-color: #5e89b2;
+  }
+  .for-color-5:checked ~ .info-wrap .btn:before {
+    background-color: #8c7f76;
+  }
+  .for-color-6:checked ~ .info-wrap .btn:before {
+    background-color: #5d6160;
+  }
